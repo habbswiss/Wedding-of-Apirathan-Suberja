@@ -19,9 +19,9 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--dark);min
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,20,16,0.95);backdrop-filter:blur(8px);padding:0 1.5rem;}
 .nav-inner{max-width:600px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;color:var(--gold);letter-spacing:0.06em;white-space:nowrap;}
-.nav-links{display:flex;gap:4px;}
-.nav-btn{padding:6px 12px;border-radius:20px;border:none;background:transparent;color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif;font-size:0.72rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:300;color:var(--gold);letter-spacing:0.06em;white-space:nowrap;}
+.nav-links{display:flex;gap:2px;}
+.nav-btn{padding:6px 9px;border-radius:20px;border:none;background:transparent;color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif;font-size:0.68rem;letter-spacing:0.06em;cursor:pointer;transition:all 0.2s;}
 .nav-btn.active,.nav-btn:hover{color:white;background:rgba(184,150,90,0.25);}
 .nav-btn.active{color:var(--gold);}
 
@@ -106,6 +106,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,20,16,0.9
 .imp-text{font-size:0.88rem;color:var(--mid);line-height:1.7;}
 .imp-text a{color:var(--gold-dark);text-decoration:none;}
 
+/* ── CEREMONY PAGE ── */
+.ceremony-intro{background:linear-gradient(135deg,var(--gold-light) 0%,#fdf6e8 100%);border-radius:var(--radius);padding:1.4rem 1.3rem;margin-bottom:1.5rem;text-align:center;}
+.ceremony-intro-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--mid);line-height:1.55;}
+.download-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:1rem;padding:0.65rem 1.2rem;background:white;border:1.5px solid var(--gold);border-radius:8px;color:var(--gold-dark);text-decoration:none;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.04em;transition:all 0.2s;cursor:pointer;}
+.download-btn:hover{background:var(--gold);color:white;}
+.ritual-list{display:flex;flex-direction:column;gap:0.85rem;}
+.ritual-card{background:white;border-radius:var(--radius);padding:1.1rem 1.1rem 1.2rem;box-shadow:0 2px 14px rgba(26,20,16,0.06);display:flex;gap:0.9rem;align-items:flex-start;}
+.ritual-num{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--gold-light);border:1.5px solid var(--gold);color:var(--gold-dark);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;}
+.ritual-content{flex:1;min-width:0;}
+.ritual-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--dark);font-weight:400;line-height:1.25;}
+.ritual-subtitle{font-size:0.76rem;color:var(--gold-dark);font-style:italic;margin-top:2px;margin-bottom:0.55rem;letter-spacing:0.02em;}
+.ritual-desc{font-size:0.84rem;color:var(--mid);line-height:1.7;}
+
 /* DIVIDER */
 .section-div{height:1px;background:linear-gradient(to right,transparent,#e8ddd0,transparent);margin:2rem 0;}
 
@@ -120,10 +133,11 @@ footer em{font-style:normal;color:var(--gold);}
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">A &amp; S · 29.05.2026</div>
+    <div class="nav-logo">A &amp; S</div>
     <div class="nav-links">
       <button class="nav-btn active" onclick="showPage('home')" id="nav-home">Home</button>
       <button class="nav-btn" onclick="showPage('program')" id="nav-program">Programm</button>
+      <button class="nav-btn" onclick="showPage('ceremony')" id="nav-ceremony">Zeremonie</button>
       <button class="nav-btn" onclick="showPage('photos')" id="nav-photos">Fotos</button>
       <button class="nav-btn" onclick="showPage('impressum')" id="nav-impressum">Info</button>
     </div>
@@ -181,6 +195,26 @@ footer em{font-style:normal;color:var(--gold);}
         <span id="map-btn-text">Google Maps öffnen</span>
       </a>
     </div>
+
+    <footer><em>Apirathan &amp; Suberja</em> · 29.05.2026</footer>
+  </div>
+</div>
+
+<!-- CEREMONY -->
+<div class="page" id="page-ceremony">
+  <div class="inner-page">
+    <h2 class="page-title" id="cer-title">Zeremonie</h2>
+    <p class="page-sub" id="cer-sub">Hindu-tamilische Hochzeitsrituale</p>
+
+    <div class="ceremony-intro">
+      <div class="ceremony-intro-text" id="cer-intro">Ein Wegweiser durch die wichtigsten Momente unserer Hochzeitszeremonie.</div>
+      <a href="ceremony.jpg" target="_blank" class="download-btn" id="cer-download">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span id="cer-download-text">Schöne Version öffnen</span>
+      </a>
+    </div>
+
+    <div class="ritual-list" id="ritual-list"></div>
 
     <footer><em>Apirathan &amp; Suberja</em> · 29.05.2026</footer>
   </div>
@@ -278,11 +312,53 @@ const PROGRAM = {
   ]
 };
 
+const RITUALS = {
+  de:[
+    {n:1,name:'Mappillai Varaverpu',sub:'Empfang des Bräutigams',desc:"Der Bräutigam und seine Familie werden am Eingang von der Familie der Braut empfangen. Er wird mit einer Blumenkette und Aalathi (einem Ritual mit brennenden Lampen zur Abwehr böser Energien) durch verheiratete Frauen begrüsst. Der Bruder der Braut, der Tholan, kann zudem die Füsse des Bräutigams waschen."},
+    {n:2,name:'Ganesha Pooja',sub:'Gebet an Lord Ganesha',desc:"Die Zeremonie beginnt mit einem Gebet an Lord Ganesha, den Entferner aller Hindernisse, damit die Hochzeit reibungslos verläuft. Der Priester segnet den Ort mit heiligem Wasser und Mantras."},
+    {n:3,name:'Kanya Aagaman',sub:'Ankunft der Braut',desc:"Die Braut betritt den Saal, begleitet von der Schwester des Bräutigams (ihre Tholi) und den Brautjungfern. Sie nimmt ihren Platz rechts neben dem Bräutigam auf dem Manavarai (Hochzeitsbühne) ein."},
+    {n:4,name:'Kanyadaanam',sub:'Übergabe der Braut',desc:"Ein emotionales Ritual, bei dem der Vater der Braut ihre Hand in jene des Bräutigams legt — als Zeichen, dass er ihm seine Tochter in Liebe und Verantwortung anvertraut. Der Bräutigam verspricht, sich gleichwertig um sie zu kümmern."},
+    {n:5,name:'Koorai & Thali Segnung',sub:'Segnung von Sari und Kette',desc:"Der Bräutigam überreicht der Braut den Koorai (Hochzeitssari) und das Thali (heilige goldene Kette). Diese werden unter den Gästen weitergereicht, damit sie gemeinsam ihren Segen erteilen. Anschliessend zieht sich die Braut kurz zurück und legt den neuen Sari an."},
+    {n:6,name:'Maangalya Dhaaranam',sub:'Anlegen des Thali',desc:"Der heiligste Moment. Zum Klang von Trommeln (Thavil) und Nadaswaram-Pfeifen knüpft der Bräutigam das Thali um den Hals der Braut. Es symbolisiert ihre ewige Verbindung. Die Gäste werfen Blütenblätter als Segen über das Paar."},
+    {n:7,name:'Maalai Maatral',sub:'Austausch der Blumenketten',desc:"Das Paar tauscht dreimal Blumenketten aus — als Zeichen gegenseitiger Annahme und Hingabe."},
+    {n:8,name:'Saptapadi',sub:'Die sieben Schritte',desc:"Das Paar geht gemeinsam sieben symbolische Schritte um das heilige Feuer (Agni). Jeder Schritt steht für ein Gelübde — etwa für Kraft, Wohlstand und lebenslange Verbundenheit."},
+    {n:9,name:'Ammi Midhithal',sub:'Das Betreten des Steins',desc:"Der Bräutigam stellt den Fuss der Braut auf einen Granitstein (Ammi) — als Symbol, dass ihre Verbindung so stabil und stark bleibt wie der Stein, durch alle Herausforderungen des Lebens. Anschliessend steckt er ihr einen silbernen Zehring (Metti) an."},
+    {n:10,name:'Nalangu',sub:'Das Ring-Spiel',desc:"Beim Ring-Spiel wird ein Ring in eine grosse Schale mit Wasser (oft mit Milch und Blumen) gelegt. Das Paar versucht in einem „Best of three\", den Ring zuerst zu finden. Der Tradition nach hat der Sieger im gemeinsamen Haushalt das letzte Wort. 😉"},
+    {n:11,name:'Aseervatham',sub:'Abschluss-Segnungen',desc:"Der Priester, die Ältesten und die Gäste sprechen abschliessende Gebete und Segnungen. Die Gäste werden oft gruppenweise auf die Bühne eingeladen, um das Paar mit Reis zu bestreuen und zu beglückwünschen."}
+  ],
+  ta:[
+    {n:1,name:'மாப்பிள்ளை வரவேற்பு',sub:'மணமகனின் வரவேற்பு',desc:"மணமகனும் அவரது குடும்பத்தினரும் மணமகளின் குடும்பத்தால் நுழைவாயிலில் வரவேற்கப்படுகிறார்கள். திருமணமான பெண்களால் மாலையும் ஆலத்தியும் (தீய சக்திகளை விரட்டும் விளக்கு சடங்கு) வழங்கப்படுகிறது. மணமகளின் சகோதரர் தோழன் மணமகனின் கால்களைக் கழுவலாம்."},
+    {n:2,name:'விநாயக பூஜை',sub:'விநாயகர் வழிபாடு',desc:"எல்லா இடையூறுகளையும் நீக்கும் விநாயக பெருமானை வணங்கி சடங்கு தொடங்குகிறது. பூசாரி தீர்த்தம் தெளித்து மந்திரங்கள் சொல்லி இடத்தை புனிதப்படுத்துகிறார்."},
+    {n:3,name:'கன்யா ஆகமனம்',sub:'மணமகளின் வரவு',desc:"மணமகனின் சகோதரியும் (தோழி) மற்ற தோழிகளும் அழைத்து வர மணமகள் மண்டபத்துக்குள் வருகிறாள். மணவறையில் (திருமண மேடை) மணமகனின் வலப்பக்கம் அமருகிறாள்."},
+    {n:4,name:'கன்யாதானம்',sub:'மணமகளின் ஒப்படைப்பு',desc:"மணமகளின் தந்தை அவளுடைய கையை மணமகனின் கையில் வைக்கும் உணர்வுபூர்வமான சடங்கு. தம் மகளை அன்போடும் பொறுப்போடும் மணமகனிடம் ஒப்படைப்பதன் அடையாளம். மணமகன் அவளை சமமாக நேசிப்பேன் என உறுதியளிக்கிறான்."},
+    {n:5,name:'கூரை & தாலி ஆசீர்வாதம்',sub:'சேலை மற்றும் தாலி ஆசீர்வாதம்',desc:"மணமகன் மணமகளுக்கு கூரை (திருமண சேலை) மற்றும் தாலி (புனித தங்க சங்கிலி) ஆகியவற்றை வழங்குகிறார். விருந்தினர்கள் அனைவரும் ஆசீர்வதிப்பதற்கு இவை அவர்களிடம் கொடுக்கப்படுகின்றன. பின்னர் மணமகள் சிறிது நேரம் சென்று புதிய சேலையை அணிந்து கொள்கிறாள்."},
+    {n:6,name:'மாங்கல்ய தாரணம்',sub:'தாலி கட்டுதல்',desc:"மிகவும் புனிதமான தருணம். தவில் மற்றும் நாதஸ்வரம் ஒலிக்க, மணமகன் மணமகளின் கழுத்தில் தாலியை கட்டுகிறார். இது அவர்களின் நிலையான பந்தத்தைக் குறிக்கிறது. விருந்தினர்கள் தம்பதியர் மேல் மலர் இதழ்களை தூவி ஆசீர்வதிக்கிறார்கள்."},
+    {n:7,name:'மாலை மாற்றல்',sub:'மலர் மாலை பரிமாற்றம்',desc:"ஒருவரையொருவர் ஏற்றுக்கொள்வதையும் அர்ப்பணிப்பையும் காட்ட தம்பதியர் மூன்று முறை மலர் மாலைகளை பரிமாறிக் கொள்கிறார்கள்."},
+    {n:8,name:'சப்தபதி',sub:'ஏழு அடிகள்',desc:"தம்பதியர் அக்னியை (புனித அக்னி) சுற்றி ஏழு புனித அடிகளை சேர்ந்து எடுக்கிறார்கள். ஒவ்வொரு அடியும் ஒரு வாக்குறுதியை – பலம், செழிப்பு, வாழ்நாள் தோழமை போன்றவற்றை – குறிக்கிறது."},
+    {n:9,name:'அம்மி மிதித்தல்',sub:'கல்லில் கால் வைத்தல்',desc:"மணமகன் மணமகளின் காலை அம்மிக் கல்லில் வைக்கிறார். வாழ்க்கையின் சவால்களின் மத்தியிலும் அவர்களின் பந்தம் அந்த கல்லைப் போல நிலையாகவும் வலுவாகவும் இருக்கும் என்பதை இது குறிக்கிறது. பின்னர் அவளுடைய காலில் வெள்ளி மெட்டி அணிவிக்கிறார்."},
+    {n:10,name:'நலங்கு',sub:'மோதிர விளையாட்டு',desc:"ஒரு பெரிய பாத்திரத்தில் (பெரும்பாலும் பாலும் மலர்களும் கலந்த நீரில்) ஒரு மோதிரம் போடப்படுகிறது. தம்பதியர் „மூன்றில் சிறந்தது\" முறையில் முதலில் கண்டுபிடிக்க போட்டியிடுகிறார்கள். பாரம்பரியப்படி, வெற்றியாளரே வீட்டில் முக்கிய முடிவெடுப்பவர் ஆவார். 😉"},
+    {n:11,name:'ஆசீர்வாதம்',sub:'இறுதி ஆசீர்வாதங்கள்',desc:"பூசாரி, பெரியோர்கள் மற்றும் விருந்தினர்கள் இறுதி பிரார்த்தனைகளையும் ஆசீர்வாதங்களையும் வழங்குகிறார்கள். விருந்தினர்கள் கூட்டமாக மேடைக்கு அழைக்கப்பட்டு தம்பதியர் மேல் அரிசி தூவி வாழ்த்துகிறார்கள்."}
+  ],
+  en:[
+    {n:1,name:'Mappillai Varaverpu',sub:"Groom's Arrival",desc:"The groom and his family are greeted at the entrance by the bride's family. He is welcomed with a garland and Aalathi (a ritual with lighted lamps to ward off evil) performed by married women. The bride's brother, the Tholan, may also wash the groom's feet."},
+    {n:2,name:'Ganesha Pooja',sub:'Prayer to Lord Ganesha',desc:"The ceremony begins with a prayer to Lord Ganesha, the remover of obstacles, to ensure the wedding proceeds smoothly. The priest sanctifies the area with holy water and mantras."},
+    {n:3,name:'Kanya Aagaman',sub:"Bride's Arrival",desc:"The bride enters the venue, escorted by the groom's sister (her Tholi) and bridesmaids. She takes her place to the right of the groom on the Manavarai (wedding stage)."},
+    {n:4,name:'Kanyadaanam',sub:'Giving Away The Bride',desc:"An emotional ritual where the bride's father places her hand in the groom's, symbolizing he is entrusting his daughter to him with love and responsibility. The groom promises to care for her as an equal."},
+    {n:5,name:'Koorai & Thali Blessing',sub:'Blessing of Saree & Necklace',desc:"The groom presents the bride with her Koorai (wedding saree) and the Thali (sacred gold necklace). These items are passed around to the guests for their collective blessings before the bride leaves briefly to change into her new saree."},
+    {n:6,name:'Maangalya Dhaaranam',sub:'Tying the Thali',desc:"The most sacred moment. To the sound of drums (Thavil) and pipes (Nadaswaram), the groom ties the Thali around the bride's neck. This signifies their eternal bond. Guests shower the couple with flower petals as a blessing."},
+    {n:7,name:'Maalai Maatral',sub:'Exchange of Garlands',desc:"The couple exchanges flower garlands three times to show mutual acceptance and commitment."},
+    {n:8,name:'Saptapadi',sub:'The Seven Steps',desc:"The couple takes seven symbolic steps together around the Agni (sacred fire). Each step represents a vow for aspects of their journey, such as strength, prosperity, and lifelong companionship."},
+    {n:9,name:'Ammi Midhithal',sub:'Treading the Stone',desc:"The groom places the bride's foot on a granite stone (Ammi), symbolizing that their bond will remain as stable and strong as the stone through life's challenges. He then places a silver ring (Metti) on her toe."},
+    {n:10,name:'Nalangu',sub:'The Ring Game',desc:"The ring game involves a large pot of water (often mixed with milk and flowers) where a single ring is dropped. The couple competes in a „best of three\" to find it first; tradition says the winner will be the primary decision-maker in the home. 😉"},
+    {n:11,name:'Aseervatham',sub:'Final Blessings',desc:"The priest, elders, and guests offer final prayers and blessings. Guests are often invited to the stage in groups to shower the couple with rice and congratulations."}
+  ]
+};
+
 const TX = {
   de:{
     tagline:'"Ein neues Kapitel beginnt"',
     ctaPhotos:'📷 Fotos hochladen',ctaProgram:'Programm ansehen',
-    navHome:'Home',navProgram:'Programm',navPhotos:'Fotos',navInfo:'Info',
+    navHome:'Home',navProgram:'Programm',navCeremony:'Zeremonie',navPhotos:'Fotos',navInfo:'Info',
     progTitle:'Programm',progDate:'29. Mai 2026',progSub:'Hall 111 · Gretzenbach',
     locLabel:'Festlocation',mapBtn:'Google Maps öffnen',
     phTitle:'Eure',phTitleEm:'Fotos',phSub:'Teilt eure schönsten Momente',
@@ -290,12 +366,13 @@ const TX = {
     phBtn:'Fotos hochladen →',phNoAcc:'Kein Dropbox-Konto nötig',
     phHow:"So einfach geht's",
     s1:'QR scannen',s2:'Button tippen',s3:'Fotos wählen',s4:'Fertig! 🎉',
-    cdTitle:'Bis zum grossen Tag',cdDays:'Tage',cdHours:'Std',cdMins:'Min',cdSecs:'Sek',cdDone:'Heute ist unser Tag ✦'
+    cdTitle:'Bis zum grossen Tag',cdDays:'Tage',cdHours:'Std',cdMins:'Min',cdSecs:'Sek',cdDone:'Heute ist unser Tag ✦',
+    cerTitle:'Zeremonie',cerSub:'Hindu-tamilische Hochzeitsrituale',cerIntro:'Ein Wegweiser durch die wichtigsten Momente unserer Hochzeitszeremonie.',cerDownload:'Schöne Version öffnen'
   },
   ta:{
     tagline:'"புதிய அத்தியாயம் தொடங்குகிறது"',
     ctaPhotos:'📷 படங்கள் பதிவேற்றவும்',ctaProgram:'நிகழ்ச்சி நிரல்',
-    navHome:'முகப்பு',navProgram:'நிகழ்ச்சி',navPhotos:'படங்கள்',navInfo:'தகவல்',
+    navHome:'முகப்பு',navProgram:'நிகழ்ச்சி',navCeremony:'சடங்கு',navPhotos:'படங்கள்',navInfo:'தகவல்',
     progTitle:'நிகழ்ச்சி நிரல்',progDate:'29 மே 2026',progSub:'Hall 111 · Gretzenbach',
     locLabel:'திருமண மண்டபம்',mapBtn:'வரைபடம் திறக்கவும்',
     phTitle:'உங்கள்',phTitleEm:'புகைப்படங்கள்',phSub:'அழகான தருணங்களை பகிரவும்',
@@ -303,12 +380,13 @@ const TX = {
     phBtn:'படங்கள் பதிவேற்றவும் →',phNoAcc:'Dropbox கணக்கு தேவையில்லை',
     phHow:'எப்படி செய்வது',
     s1:'QR ஸ்கேன்',s2:'பொத்தான் அழுத்தவும்',s3:'படங்கள் தேர்வு',s4:'முடிந்தது! 🎉',
-    cdTitle:'பெரிய நாள் வரை',cdDays:'நாட்கள்',cdHours:'மணி',cdMins:'நிமி',cdSecs:'விநா',cdDone:'இன்று எங்கள் நாள் ✦'
+    cdTitle:'பெரிய நாள் வரை',cdDays:'நாட்கள்',cdHours:'மணி',cdMins:'நிமி',cdSecs:'விநா',cdDone:'இன்று எங்கள் நாள் ✦',
+    cerTitle:'சடங்கு',cerSub:'இந்து தமிழ் திருமண சடங்குகள்',cerIntro:'எங்கள் திருமண சடங்கின் முக்கிய தருணங்களுக்கான வழிகாட்டி.',cerDownload:'அழகான பதிப்பைத் திறக்கவும்'
   },
   en:{
     tagline:'"A new chapter begins"',
     ctaPhotos:'📷 Upload photos',ctaProgram:'View program',
-    navHome:'Home',navProgram:'Program',navPhotos:'Photos',navInfo:'Info',
+    navHome:'Home',navProgram:'Program',navCeremony:'Ceremony',navPhotos:'Photos',navInfo:'Info',
     progTitle:'Program',progDate:'29 May 2026',progSub:'Hall 111 · Gretzenbach',
     locLabel:'Venue',mapBtn:'Open Google Maps',
     phTitle:'Your',phTitleEm:'Photos',phSub:'Share your favourite moments',
@@ -316,7 +394,8 @@ const TX = {
     phBtn:'Upload photos →',phNoAcc:'No Dropbox account needed',
     phHow:'How it works',
     s1:'Scan QR code',s2:'Tap button',s3:'Choose photos',s4:'Done! 🎉',
-    cdTitle:'Until the big day',cdDays:'Days',cdHours:'Hrs',cdMins:'Min',cdSecs:'Sec',cdDone:'Today is our day ✦'
+    cdTitle:'Until the big day',cdDays:'Days',cdHours:'Hrs',cdMins:'Min',cdSecs:'Sec',cdDone:'Today is our day ✦',
+    cerTitle:'Ceremony',cerSub:'Hindu Tamil Wedding Rituals',cerIntro:'A guide through the most important moments of our wedding ceremony.',cerDownload:'Open beautiful version'
   }
 };
 
@@ -332,6 +411,7 @@ function setLang(l){
   document.getElementById('cta-program').textContent=x.ctaProgram;
   document.getElementById('nav-home').textContent=x.navHome;
   document.getElementById('nav-program').textContent=x.navProgram;
+  document.getElementById('nav-ceremony').textContent=x.navCeremony;
   document.getElementById('nav-photos').textContent=x.navPhotos;
   document.getElementById('nav-impressum').textContent=x.navInfo;
   document.getElementById('prog-title').innerHTML=x.progTitle+' <em id="prog-date">'+x.progDate+'</em>';
@@ -353,7 +433,28 @@ function setLang(l){
   document.getElementById('cd-h-l').textContent=x.cdHours;
   document.getElementById('cd-m-l').textContent=x.cdMins;
   document.getElementById('cd-s-l').textContent=x.cdSecs;
+  document.getElementById('cer-title').textContent=x.cerTitle;
+  document.getElementById('cer-sub').textContent=x.cerSub;
+  document.getElementById('cer-intro').textContent=x.cerIntro;
+  document.getElementById('cer-download-text').textContent=x.cerDownload;
   renderTimeline();
+  renderRituals();
+}
+
+function renderRituals(){
+  const list = document.getElementById('ritual-list');
+  list.innerHTML='';
+  RITUALS[lang].forEach(r=>{
+    const card = document.createElement('div');
+    card.className='ritual-card';
+    card.innerHTML = '<div class="ritual-num">'+r.n+'</div>'+
+      '<div class="ritual-content">'+
+      '<div class="ritual-name">'+r.name+'</div>'+
+      '<div class="ritual-subtitle">'+r.sub+'</div>'+
+      '<div class="ritual-desc">'+r.desc+'</div>'+
+      '</div>';
+    list.appendChild(card);
+  });
 }
 
 /* COUNTDOWN — Hochzeit 29.05.2026, 16:45 Uhr (Schweizer Zeit) */
