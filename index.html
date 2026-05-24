@@ -100,11 +100,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,20,16,0.9
 
 /* ── IMPRESSUM ── */
 .impressum-box{background:white;border-radius:var(--radius);padding:2rem 1.5rem;box-shadow:0 4px 20px rgba(26,20,16,0.07);}
-.imp-section{margin-bottom:1.5rem;}
+.imp-section{margin-bottom:1.6rem;}
 .imp-section:last-child{margin-bottom:0;}
-.imp-label{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.4rem;font-weight:500;}
+.imp-head{display:flex;align-items:center;gap:10px;margin-bottom:0.55rem;}
+.imp-icon{width:18px;height:18px;color:var(--gold-dark);flex-shrink:0;stroke-width:1.6;}
+.imp-label{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dark);font-weight:500;}
 .imp-text{font-size:0.88rem;color:var(--mid);line-height:1.7;}
 .imp-text a{color:var(--gold-dark);text-decoration:none;}
+.imp-text a:hover{text-decoration:underline;}
+.food-block{margin-top:0.55rem;padding:0.65rem 0.9rem;background:var(--gold-light);border-left:2px solid var(--gold);border-radius:6px;}
+.food-block:first-of-type{margin-top:0.2rem;}
+.food-when{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--gold-dark);margin-bottom:0.25rem;}
+.food-what{font-size:0.85rem;color:var(--mid);line-height:1.6;}
+.imp-map-btn{display:inline-flex;align-items:center;gap:6px;margin-top:0.7rem;padding:0.5rem 1rem;background:transparent;border:1px solid var(--gold);border-radius:6px;color:var(--gold-dark);text-decoration:none;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.03em;transition:all 0.2s;}
+.imp-map-btn:hover{background:var(--gold);color:white;}
 
 /* ── CEREMONY PAGE ── */
 .ceremony-intro{background:linear-gradient(135deg,var(--gold-light) 0%,#fdf6e8 100%);border-radius:var(--radius);padding:1.4rem 1.3rem;margin-bottom:1.5rem;text-align:center;}
@@ -249,33 +258,13 @@ footer em{font-style:normal;color:var(--gold);}
   </div>
 </div>
 
-<!-- IMPRESSUM -->
+<!-- INFO -->
 <div class="page" id="page-impressum">
   <div class="inner-page">
-    <h2 class="page-title">Info &amp; <em>Impressum</em></h2>
-    <div class="page-sub">HABB Switzerland</div>
+    <h2 class="page-title" id="info-title">Infos für <em>Gäste</em></h2>
+    <p class="page-sub" id="info-sub">Anreise · Parking · Verpflegung</p>
 
-    <div class="impressum-box">
-      <div class="imp-section">
-        <div class="imp-label">Verantwortlich</div>
-        <div class="imp-text">HABB Switzerland<br>Schweiz</div>
-      </div>
-      <div class="section-div"></div>
-      <div class="imp-section">
-        <div class="imp-label">Webseite</div>
-        <div class="imp-text">Diese Webseite wurde für die Hochzeit von Apirathan &amp; Suberja am 29. Mai 2026 erstellt.<br><br>Fotos werden direkt in einem privaten Dropbox-Ordner gespeichert und nicht öffentlich zugänglich gemacht.</div>
-      </div>
-      <div class="section-div"></div>
-      <div class="imp-section">
-        <div class="imp-label">Datenschutz</div>
-        <div class="imp-text">Hochgeladene Fotos werden ausschliesslich für private Zwecke des Brautpaares gespeichert. Es werden keine personenbezogenen Daten ohne Einwilligung weitergegeben.</div>
-      </div>
-      <div class="section-div"></div>
-      <div class="imp-section">
-        <div class="imp-label">Location</div>
-        <div class="imp-text">Hall 111<br>Im Grund 5<br>5014 Gretzenbach, Schweiz</div>
-      </div>
-    </div>
+    <div class="impressum-box" id="info-sections"></div>
 
     <footer><em>Apirathan &amp; Suberja</em> · 29.05.2026</footer>
   </div>
@@ -294,9 +283,9 @@ const PROGRAM = {
   ],
   ta:[
     {time:'16:45',event:'மணமகன் வரவேற்பு',desc:'அபிரதனின் பவ்யமான வரவேற்பு'},
-    {time:'17:45',event:'மணமகள் வரவேற்பு',desc:'சுபர்ஜாவின் பவ்யமான வரவேற்பு'},
-    {time:'18:30',event:'கூறை மாற்றம்',desc:'பாரம்பரிய சேலை மாற்றம்'},
-    {time:'19:15',event:'மணமகளின் 2வது வரவு',desc:'சுபர்ஜாவின் இரண்டாம் ஆடை'},
+    {time:'17:45',event:'மணமகள் வரவேற்பு',desc:'சுபேர்ஜாவின் பவ்யமான வரவேற்பு'},
+    {time:'18:30',event:'கூரை மாற்றம்',desc:'பாரம்பரிய சேலை மாற்றம்'},
+    {time:'19:15',event:'மணமகளின் 2வது வரவு',desc:'சுபேர்ஜாவின் இரண்டாம் ஆடை'},
     {time:'19:30',event:'தாலி கட்டுதல்',desc:'திருமண சடங்கு'},
     {time:'19:45',event:'அக்ஷதை',desc:'அரிசி ஆசீர்வாதம்'},
     {time:'20:00',event:'விருந்து',desc:'பொது விருந்து'},
@@ -331,7 +320,7 @@ const RITUALS = {
     {n:2,name:'விநாயக பூஜை',sub:'விநாயகர் வழிபாடு',desc:"எல்லா இடையூறுகளையும் நீக்கும் விநாயக பெருமானை வணங்கி சடங்கு தொடங்குகிறது. பூசாரி தீர்த்தம் தெளித்து மந்திரங்கள் சொல்லி இடத்தை புனிதப்படுத்துகிறார்."},
     {n:3,name:'கன்யா ஆகமனம்',sub:'மணமகளின் வரவு',desc:"மணமகனின் சகோதரியும் (தோழி) மற்ற தோழிகளும் அழைத்து வர மணமகள் மண்டபத்துக்குள் வருகிறாள். மணவறையில் (திருமண மேடை) மணமகனின் வலப்பக்கம் அமருகிறாள்."},
     {n:4,name:'கன்யாதானம்',sub:'மணமகளின் ஒப்படைப்பு',desc:"மணமகளின் தந்தை அவளுடைய கையை மணமகனின் கையில் வைக்கும் உணர்வுபூர்வமான சடங்கு. தம் மகளை அன்போடும் பொறுப்போடும் மணமகனிடம் ஒப்படைப்பதன் அடையாளம். மணமகன் அவளை சமமாக நேசிப்பேன் என உறுதியளிக்கிறான்."},
-    {n:5,name:'கூறை & தாலி ஆசீர்வாதம்',sub:'சேலை மற்றும் தாலி ஆசீர்வாதம்',desc:"மணமகன் மணமகளுக்கு கூறை (திருமண சேலை) மற்றும் தாலி (புனித தங்க சங்கிலி) ஆகியவற்றை வழங்குகிறார். விருந்தினர்கள் அனைவரும் ஆசீர்வதிப்பதற்கு இவை அவர்களிடம் கொடுக்கப்படுகின்றன. பின்னர் மணமகள் சிறிது நேரம் சென்று புதிய சேலையை அணிந்து கொள்கிறாள்."},
+    {n:5,name:'கூரை & தாலி ஆசீர்வாதம்',sub:'சேலை மற்றும் தாலி ஆசீர்வாதம்',desc:"மணமகன் மணமகளுக்கு கூரை (திருமண சேலை) மற்றும் தாலி (புனித தங்க சங்கிலி) ஆகியவற்றை வழங்குகிறார். விருந்தினர்கள் அனைவரும் ஆசீர்வதிப்பதற்கு இவை அவர்களிடம் கொடுக்கப்படுகின்றன. பின்னர் மணமகள் சிறிது நேரம் சென்று புதிய சேலையை அணிந்து கொள்கிறாள்."},
     {n:6,name:'மாங்கல்ய தாரணம்',sub:'தாலி கட்டுதல்',desc:"மிகவும் புனிதமான தருணம். தவில் மற்றும் நாதஸ்வரம் ஒலிக்க, மணமகன் மணமகளின் கழுத்தில் தாலியை கட்டுகிறார். இது அவர்களின் நிலையான பந்தத்தைக் குறிக்கிறது. விருந்தினர்கள் தம்பதியர் மேல் மலர் இதழ்களை தூவி ஆசீர்வதிக்கிறார்கள்."},
     {n:7,name:'மாலை மாற்றல்',sub:'மலர் மாலை பரிமாற்றம்',desc:"ஒருவரையொருவர் ஏற்றுக்கொள்வதையும் அர்ப்பணிப்பையும் காட்ட தம்பதியர் மூன்று முறை மலர் மாலைகளை பரிமாறிக் கொள்கிறார்கள்."},
     {n:8,name:'சப்தபதி',sub:'ஏழு அடிகள்',desc:"தம்பதியர் அக்னியை (புனித அக்னி) சுற்றி ஏழு புனித அடிகளை சேர்ந்து எடுக்கிறார்கள். ஒவ்வொரு அடியும் ஒரு வாக்குறுதியை – பலம், செழிப்பு, வாழ்நாள் தோழமை போன்றவற்றை – குறிக்கிறது."},
@@ -352,6 +341,71 @@ const RITUALS = {
     {n:10,name:'Nalangu',sub:'The Ring Game',desc:"The ring game involves a large pot of water (often mixed with milk and flowers) where a single ring is dropped. The couple competes in a „best of three\" to find it first; tradition says the winner will be the primary decision-maker in the home. 😉"},
     {n:11,name:'Aseervatham',sub:'Final Blessings',desc:"The priest, elders, and guests offer final prayers and blessings. Guests are often invited to the stage in groups to shower the couple with rice and congratulations."}
   ]
+};
+
+const ICONS = {
+  location:'<svg class="imp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  car:'<svg class="imp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 17V9l3-6h12l3 6v8M3 17h2v2H3zm16 0h2v2h-2z"/><circle cx="7.5" cy="13.5" r="1"/><circle cx="16.5" cy="13.5" r="1"/></svg>',
+  parking:'<svg class="imp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>',
+  train:'<svg class="imp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16M8 15h.01M16 15h.01M7 19l-2 3M17 19l2 3"/></svg>',
+  food:'<svg class="imp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M3 11a8 8 0 0 1 16 0M5 11v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6M12 7V3"/></svg>',
+  info:'<svg class="imp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>'
+};
+
+const MAPS_URL = 'https://maps.google.com/?q=Im+Grund+5,+5014+Gretzenbach';
+
+const INFO = {
+  de:{
+    title:'Infos für <em>Gäste</em>',
+    sub:'Anreise · Parking · Verpflegung',
+    mapBtn:'Auf Google Maps öffnen',
+    sections:[
+      {icon:'location',label:'Location',text:'Hall 111<br>Im Grund 5<br>5014 Gretzenbach, Schweiz',mapLink:true},
+      {icon:'car',label:'Anreise mit dem Auto',text:'Autobahnausfahrt 49 nehmen und über Kölliken nach Gretzenbach fahren. Dem Strassenverlauf bis zur Hall 111 folgen.'},
+      {icon:'parking',label:'Parkmöglichkeiten',text:'73 Garagenparkplätze sowie weitere Aussenparkplätze stehen zur Verfügung.<br><br>Am Freitag kann zusätzlich der Parkplatz beim Lidl genutzt werden (gebührenpflichtig).'},
+      {icon:'train',label:'Anreise mit ÖV',text:'Vom Bahnhof Aarau mit dem Bus Richtung Gretzenbach Staldenacker. Aussteigen bei der Haltestelle «Gretzenbach Staldenacker», dann etwa 5 Minuten zu Fuss zur Hall 111.'},
+      {icon:'food',label:'Verpflegung',food:[
+        {when:'Vorspeise · ab 16:00 Uhr',what:'Vadai, Rolls, Süssgetränke, Wasser, Tee mit Milch, Sarbet — sowie je nach Verfügbarkeit Ilanir (frisches Kokoswasser).'},
+        {when:'Nachtessen · nach Thaali Kattu',what:'Buffet mit Reis und Idiyappam, dazu verschiedene vegetarische Curries.'},
+        {when:'Nachtisch',what:'Paayasam (traditionelle süsse Reis-Milch-Spezialität).'}
+      ]},
+      {icon:'info',label:'Impressum & Datenschutz',text:'<b>HABB Switzerland</b><br>Schweiz<br><br>Diese Webseite wurde für die Hochzeit von Apirathan &amp; Suberja am 29. Mai 2026 erstellt. Fotos werden in einem privaten Dropbox-Ordner gespeichert und nicht öffentlich zugänglich gemacht. Hochgeladene Fotos werden ausschliesslich für private Zwecke des Brautpaares verwendet. Es werden keine personenbezogenen Daten ohne Einwilligung weitergegeben.'}
+    ]
+  },
+  ta:{
+    title:'<em>விருந்தினர்களுக்கு</em> தகவல்',
+    sub:'வழித்தடம் · வாகன நிறுத்து · உணவு',
+    mapBtn:'கூகுள் வரைபடத்தில் திற',
+    sections:[
+      {icon:'location',label:'இடம்',text:'Hall 111<br>Im Grund 5<br>5014 கிரெட்ஸன்பாக், சுவிட்சர்லாந்து',mapLink:true},
+      {icon:'car',label:'காரில் வருதல்',text:'நெடுஞ்சாலை வெளியேற்றம் 49 எடுத்து, கோலிக்கன் வழியாக கிரெட்ஸன்பாக் செல்லவும். சாலை வழியில் Hall 111 வரை செல்லவும்.'},
+      {icon:'parking',label:'வாகன நிறுத்துமிடம்',text:'73 கேரேஜ் இடங்களும் கூடுதல் வெளிப்புற வாகன நிறுத்துமிடங்களும் உள்ளன.<br><br>வெள்ளிக்கிழமை அன்று Lidl கடையின் வாகன நிறுத்துமிடத்தையும் (கட்டணம் செலுத்தி) பயன்படுத்தலாம்.'},
+      {icon:'train',label:'பொது போக்குவரத்தில் வருதல்',text:'ஆராவ் (Aarau) ரயில் நிலையத்திலிருந்து கிரெட்ஸன்பாக் ஸ்டால்டெனாக்கர் நோக்கிய பேருந்தில் ஏறவும். «Gretzenbach Staldenacker» நிறுத்தத்தில் இறங்கி, Hall 111 வரை சுமார் 5 நிமிட நடைப்பயணம்.'},
+      {icon:'food',label:'உணவு',food:[
+        {when:'தொடக்க உணவு · மாலை 4 மணி முதல்',what:'வடை, ரோல்ஸ், இனிப்பு பானங்கள், தண்ணீர், பால் தேநீர், சர்பத், மற்றும் கிடைப்பின் இளநீர்.'},
+        {when:'இரவு உணவு · தாலி கட்டியபின்',what:'புபேயில் சாதம், இடியாப்பம், பலவகை சைவ கறிகள் வழங்கப்படும்.'},
+        {when:'இனிப்பு',what:'பாயாசம் (பாரம்பரிய இனிப்பு வகை).'}
+      ]},
+      {icon:'info',label:'பதிப்புரிமை & தனியுரிமை',text:'<b>HABB Switzerland</b><br>சுவிட்சர்லாந்து<br><br>இந்த இணையதளம் 29 மே 2026 அன்று நடைபெறும் அபிரதன் & சுபேர்ஜா திருமணத்திற்காக உருவாக்கப்பட்டது. படங்கள் தனிப்பட்ட Dropbox கோப்புறையில் சேமிக்கப்படுகின்றன மற்றும் பொதுவில் காண்பிக்கப்படுவதில்லை. பதிவேற்றப்பட்ட படங்கள் மணமக்களின் தனிப்பட்ட நோக்கங்களுக்கு மட்டுமே பயன்படுத்தப்படும்.'}
+    ]
+  },
+  en:{
+    title:'Info for <em>Guests</em>',
+    sub:'Getting there · Parking · Food',
+    mapBtn:'Open in Google Maps',
+    sections:[
+      {icon:'location',label:'Venue',text:'Hall 111<br>Im Grund 5<br>5014 Gretzenbach, Switzerland',mapLink:true},
+      {icon:'car',label:'Arrival by Car',text:'Take motorway exit 49 and drive via Kölliken to Gretzenbach. Follow the road until you reach Hall 111.'},
+      {icon:'parking',label:'Parking',text:'73 garage spaces plus additional outdoor parking are available.<br><br>On Friday, the Lidl car park can also be used (paid parking).'},
+      {icon:'train',label:'Arrival by Public Transport',text:'From Aarau train station, take the bus towards Gretzenbach Staldenacker. Get off at «Gretzenbach Staldenacker» and walk about 5 minutes to Hall 111.'},
+      {icon:'food',label:'Food & Drinks',food:[
+        {when:'Appetisers · from 4:00 PM',what:'Vadai, rolls, sweet drinks, water, tea with milk, Sarbet — and if available, Ilanir (fresh coconut water).'},
+        {when:'Dinner · after Thaali Kattu',what:'Buffet opens with rice and Idiyappam, served with various vegetarian curries.'},
+        {when:'Dessert',what:'Paayasam (traditional sweet rice-milk pudding).'}
+      ]},
+      {icon:'info',label:'Imprint & Privacy',text:'<b>HABB Switzerland</b><br>Switzerland<br><br>This website was created for the wedding of Apirathan &amp; Suberja on 29 May 2026. Photos are stored in a private Dropbox folder and are not publicly accessible. Uploaded photos are used exclusively for the private purposes of the couple. No personal data is shared without consent.'}
+    ]
+  }
 };
 
 const TX = {
@@ -376,7 +430,7 @@ const TX = {
     progTitle:'நிகழ்ச்சி நிரல்',progDate:'29 மே 2026',progSub:'Hall 111 · Gretzenbach',
     locLabel:'திருமண மண்டபம்',mapBtn:'வரைபடம் திறக்கவும்',
     phTitle:'உங்கள்',phTitleEm:'புகைப்படங்கள்',phSub:'அழகான தருணங்களை பகிரவும்',
-    phHint:'அபிரதன் & சுபர்ஜாவுடன் உங்கள் அழகான தருணங்களை பகிரவும்! பொத்தானை அழுத்தி படங்களை பதிவேற்றவும்.',
+    phHint:'அபிரதன் & சுபேர்ஜாவுடன் உங்கள் அழகான தருணங்களை பகிரவும்! பொத்தானை அழுத்தி படங்களை பதிவேற்றவும்.',
     phBtn:'படங்கள் பதிவேற்றவும் →',phNoAcc:'Dropbox கணக்கு தேவையில்லை',
     phHow:'எப்படி செய்வது',
     s1:'QR ஸ்கேன்',s2:'பொத்தான் அழுத்தவும்',s3:'படங்கள் தேர்வு',s4:'முடிந்தது! 🎉',
@@ -439,6 +493,39 @@ function setLang(l){
   document.getElementById('cer-download-text').textContent=x.cerDownload;
   renderTimeline();
   renderRituals();
+  renderInfo();
+}
+
+function renderInfo(){
+  const data = INFO[lang];
+  document.getElementById('info-title').innerHTML = data.title;
+  document.getElementById('info-sub').textContent = data.sub;
+  const wrap = document.getElementById('info-sections');
+  wrap.innerHTML = '';
+  data.sections.forEach((s,i)=>{
+    if(i>0){
+      const div = document.createElement('div');
+      div.className='section-div';
+      wrap.appendChild(div);
+    }
+    const sec = document.createElement('div');
+    sec.className='imp-section';
+    let inner = '<div class="imp-head">'+ICONS[s.icon]+'<div class="imp-label">'+s.label+'</div></div>';
+    if(s.food){
+      s.food.forEach(f=>{
+        inner += '<div class="food-block"><div class="food-when">'+f.when+'</div><div class="food-what">'+f.what+'</div></div>';
+      });
+    } else {
+      inner += '<div class="imp-text">'+s.text+'</div>';
+      if(s.mapLink){
+        inner += '<a href="'+MAPS_URL+'" target="_blank" rel="noopener" class="imp-map-btn">'+
+          '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'+
+          '<span>'+data.mapBtn+'</span></a>';
+      }
+    }
+    sec.innerHTML = inner;
+    wrap.appendChild(sec);
+  });
 }
 
 function renderRituals(){
